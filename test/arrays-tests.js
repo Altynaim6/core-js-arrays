@@ -148,8 +148,7 @@ describe('arrays-tasks', () => {
           data.expected,
           `Number of occurrences of ${JSON.stringify(
             data.item
-          )} in ${JSON.stringify(data.arr)} is ${
-            data.expected
+          )} in ${JSON.stringify(data.arr)} is ${data.expected
           }, but actually ${actual}`
         );
       });
@@ -644,8 +643,7 @@ describe('arrays-tasks', () => {
           data.expected,
           `getElementByIndices(${JSON.stringify(data.arr)}, ${JSON.stringify(
             data.indexes
-          )}) returns an incorrect result. Expected ${
-            data.expected
+          )}) returns an incorrect result. Expected ${data.expected
           }, but actual ${actual}`
         );
       });
@@ -820,24 +818,24 @@ describe('arrays-tasks', () => {
 
   // findLongestIncreasingSubsequence
   it.optional(
-    'findLongestIncreasingSubsequence should return a length of the longest increasing subsequence',
+    'findLongestIncreasingSubsequence should return the length of the longest increasing subsequence',
     () => {
       [
         {
           arr: [10, 22, 9, 33, 21, 50, 41, 60, 80],
-          expected: 3,
+          expected: 6, 
         },
         {
           arr: [3, 10, 2, 1, 20],
-          expected: 2,
+          expected: 3, 
         },
         {
           arr: [50, 3, 10, 7, 40, 80],
-          expected: 3,
+          expected: 4, 
         },
         {
           arr: [41, 60, 80, 10, 22, 9, 33, 21, 50],
-          expected: 3,
+          expected: 4, 
         },
       ].forEach((data) => {
         const actual = tasks.findLongestIncreasingSubsequence(data.arr);
@@ -845,6 +843,7 @@ describe('arrays-tasks', () => {
       });
     }
   );
+
 
   it.optional(
     'propagateItemsByPositionIndex should propagate every item its position time',
