@@ -176,23 +176,27 @@ function findCommonElements(arr1, arr2) {
   return commonElements;
 }
 
-const findLongestIncreasingSubsequence = (arr) => {
-  if (arr.length === 0) return 0;
-
-  const dp = arr.map(() => 1);
-
-  arr.map((value, i) => {
-    arr.slice(0, i).map((value2, j) => {
-      if (value > value2) {
-        dp[i] = Math.max(dp[i], dp[j] + 1);
+function findLongestIncreasingSubsequence(nums) {
+  const maxLength = nums.reduce(
+    (acc, curr, index, arr) => {
+      if (curr > arr[index - 1]) {
+        acc.currentLength += 1;
+      } else {
+        acc.maxLength = Math.max(acc.maxLength, acc.currentLength);
+        acc.currentLength = 1;
       }
-      return dp[i];
-    });
-    return dp[i];
-  });
 
-  return Math.max(...dp);
-};
+      if (index === arr.length - 1) {
+        acc.maxLength = Math.max(acc.maxLength, acc.currentLength);
+      }
+
+      return acc;
+    },
+    { currentLength: 0, maxLength: 0 }
+  );
+
+  return maxLength.maxLength;
+}
 
 function propagateItemsByPositionIndex(arr) {
   return arr.map((item, index) => Array(index + 1).fill(item)).flat();

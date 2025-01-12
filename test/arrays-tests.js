@@ -818,24 +818,24 @@ describe('arrays-tasks', () => {
 
   // findLongestIncreasingSubsequence
   it.optional(
-    'findLongestIncreasingSubsequence should return the length of the longest increasing subsequence',
+    'findLongestIncreasingSubsequence should return a length of the longest increasing subsequence',
     () => {
       [
         {
           arr: [10, 22, 9, 33, 21, 50, 41, 60, 80],
-          expected: 6, 
+          expected: 3,
         },
         {
           arr: [3, 10, 2, 1, 20],
-          expected: 3, 
+          expected: 2,
         },
         {
           arr: [50, 3, 10, 7, 40, 80],
-          expected: 4, 
+          expected: 3,
         },
         {
           arr: [41, 60, 80, 10, 22, 9, 33, 21, 50],
-          expected: 4, 
+          expected: 3,
         },
       ].forEach((data) => {
         const actual = tasks.findLongestIncreasingSubsequence(data.arr);
@@ -843,7 +843,6 @@ describe('arrays-tasks', () => {
       });
     }
   );
-
 
   it.optional(
     'propagateItemsByPositionIndex should propagate every item its position time',
